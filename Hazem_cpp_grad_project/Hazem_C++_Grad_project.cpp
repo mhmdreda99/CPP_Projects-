@@ -1,3 +1,13 @@
+/**
+ * @file Hazem_C++_Grad_project.cpp
+ * @author mhmdreda99 (dev.mhmdreda99@gmail.com)
+ * @brief 
+ * @version 0.1
+ * @date 2024-01-13
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
 // Include necessary Dependecies
 #include <iostream>
 #include <vector>
@@ -24,7 +34,11 @@ std::vector<Person> records;
  * @param age stores person age 
  */
 void AddRecord(std::string name, int age) {
-    records.push_back(Person(name, age));
+    if (records.size() < 100) {
+        records.push_back(Person(name, age));
+    } else {
+        std::cout << "Error: Maximum number of records reached." << std::endl;
+    }
 }
 /**
  * @brief 
@@ -39,6 +53,8 @@ Person FetchRecord(int id) {
 
 // App. Entry point 
 int main() {
+
+     std::cout << "User Sign-up Application\n" ;
     // Infinite loop to keep the program running until the user chooses to quit
     while (true) {
         // Display options to the user
