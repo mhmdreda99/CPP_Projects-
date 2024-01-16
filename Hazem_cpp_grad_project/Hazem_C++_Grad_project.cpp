@@ -12,13 +12,14 @@
 #include <iostream>
 #include <vector>
 #include <string>
-
+// aviod magic numbers CORE GUIDELINE 
+constexpr int MAX_NO_RECORDS = 100 ; 
 // Define a Person class with name and age attributes
 
 class Person {
 public:
     std::string name;
-    int age;
+    int age = 0;
 
     // Constructor for Person class
     Person(std::string name, int age) : name(name), age(age) {}
@@ -34,7 +35,7 @@ std::vector<Person> records;
  * @param age stores person age 
  */
 void AddRecord(std::string name, int age) {
-    if (records.size() < 100) {
+    if (records.size() < MAX_NO_RECORDS) {
         records.push_back(Person(name, age));
     } else {
         std::cout << "Error: Maximum number of records reached." << std::endl;
@@ -93,4 +94,8 @@ int main() {
             std::cout << "Invalid option\n";
         }
     }
+    
+    // Return 0 to indicate successful program execution
+    return 0;
+        
 }
